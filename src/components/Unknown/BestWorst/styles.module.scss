@@ -1,0 +1,21 @@
+@import '../../../styles/variables.scss';
+
+.bestWorst{
+    display: inline-block;
+}
+
+.title{
+    display: inline-block;
+    max-width: 96px;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 400;
+    color: $basic-600;
+    margin-bottom: 8px;
+}
+
+.tokens{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}

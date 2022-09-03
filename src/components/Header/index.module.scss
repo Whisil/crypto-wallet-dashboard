@@ -1,0 +1,84 @@
+@import 'src/styles/variables.scss';
+
+.header{
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid $basic-850;
+    background-color: $basic-900;
+
+    .logoHalf{
+        display: none;
+        align-items: center;
+        justify-content: space-between;
+        width: 50%;
+        
+        @media screen and (max-width: 992px){
+            display: flex;
+        }
+        .menuBtn{
+            cursor: pointer;
+            svg{
+                path{
+                    transition: fill .2s ease;
+                }
+            }
+    
+            &:hover{
+                svg{
+                    path{
+                        fill: $white;
+                    }
+                }
+            }
+            @media screen and (max-width: 992px){
+                display: flex;
+            }
+        }
+    }
+
+    
+
+    &Title{
+        font-size: 15px;
+        font-weight: 800;
+        line-height: 24px;
+        color: $basic-100;
+
+        @media screen and (max-width: 992px){
+            display: none;
+        }
+    }
+
+    &Wallet{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 4px 4px 4px 12px;
+        background-color: $basic-800;
+        border-radius: 30px;
+
+        &Text{
+            font-size: 12px;
+            line-height: 20px;
+            font-weight: 600;
+            color: $basic-100;
+
+            @media screen and (max-width: 992px){
+                font-size: 10px;
+                line-height: 14px;
+
+                span{
+                    display: none;
+                }
+            }
+        }
+    }
+
+
+    @media screen and (max-width: 992px){
+        padding: 12px 16px;
+    }
+}

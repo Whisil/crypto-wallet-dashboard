@@ -1,0 +1,25 @@
+@import '../../../styles/variables.scss';
+
+.tokenInfo{
+    margin-bottom: 12px;
+    
+    .token{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+
+        img{
+            border-radius: 10px;
+        }
+    
+        &Name{
+            font-size: 13px;
+            line-height: 24px;
+            font-weight: 600;
+            color: $basic-100;
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,51 @@
+@import '../../../styles/variables.scss';
+
+.graphWidget{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .graph{
+        margin-bottom: 11px;
+    
+        svg{
+            width: 100%;
+            height: auto;
+        }
+    }
+    
+    .large{
+        margin-bottom: 13px;
+    }
+
+    .timeSelector{
+        position: relative;
+        width: fit-content;
+        z-index: 5;
+        .timespan{
+            font-weight: 600;
+            font-size: 11px;
+            line-height: 16px;
+            color: $basic-300;
+            cursor: pointer;
+            display: inline-flex;
+            gap: 2px;
+            align-items: center;
+        }
+
+        &Container{
+            position: absolute;
+            transform: translateY(4px);
+        }
+    }
+
+    .timeSelectorSmall{
+        .timeSelectorContainer{
+            right: 0;
+        }
+    }
+
+    @media screen and (max-width: 992px){
+        width: 100%;
+    }
+}

@@ -1,0 +1,134 @@
+@import '../../../styles/variables.scss';
+
+.btn{
+    width: fit-content;
+    display: flex;
+    cursor: pointer;
+    border-radius: 6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $basic-800;
+    transition: border-color .2s ease,
+                background-color .2s ease;
+
+    .label{
+        position: relative;
+        display: flex;
+        cursor: pointer;
+    }
+    input{
+        position: absolute;
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+    input:checked + .label{
+        background-color: #fff;
+    }
+    .botsIcon{
+        display: flex;
+    }
+    .icon{
+        path{
+            fill: $basic-600;
+            transition: fill .2s ease;
+        }
+    }
+
+    &:hover{
+        border-color: $basic-700;
+        background-color: $basic-850;
+
+        .icon{
+            path{
+                fill: $basic-100;
+            }
+        }
+    }
+
+    &:active{
+        background-color: $basic-800;
+    }
+
+    &:focus{
+        background-color: #fff;
+    }
+
+
+}
+
+.greenAccent{
+    @extend .btn;
+    border-color: rgba($green-500, 0.25);
+
+    .icon{
+        path{
+            fill: $green-500 !important;
+        }
+    }
+
+    &:hover{
+        border-color: rgba($green-500, 0.4);
+        background-color: rgba($green-500, 0.1);
+    
+    }
+
+    &:active{
+        background-color: rgba($green-500, 0.2);
+    }
+}
+
+.redAccent{
+    @extend .btn;
+    border-color: rgba($red-500, 0.25);
+
+    .icon{
+        path{
+            fill: $red-500 !important;
+        }
+    }
+
+    &:hover{
+        border-color: rgba($red-500, 0.4);
+        background-color: rgba($red-500, 0.1);
+    
+    }
+
+    &:active{
+        background-color: rgba($red-500, 0.2);
+    }
+
+    .bots{
+        display: flex;
+        position: relative;
+    }
+}
+
+.regularSelect{
+    border-color: $basic-600 !important;
+    .icon{
+        path{
+            fill: $basic-100;
+        }
+    }
+}
+
+.greenSelect{
+    border-color: rgba($green-500, 0.5) !important;
+    .icon{
+        path{
+            fill: $green-500 !important;
+        }
+    }
+}
+
+.redSelect{
+    border-color: rgba($red-500, 0.5) !important;
+    background-color: rgba($red-500, 0.2) !important;
+    .icon{
+        path{
+            fill: $red-500 !important;
+        }
+    }
+}
+

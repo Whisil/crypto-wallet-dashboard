@@ -1,0 +1,63 @@
+@import '../../styles/variables.scss';
+.main {
+  position: relative;
+  padding: 16px 24px;
+  overflow: hidden;
+  width: 100%;
+  display: grid;
+  grid-template-areas: "a a";
+  column-gap: 40px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  .divider{
+    position: absolute;
+    height: 97%;
+    width: 1px;
+    background-color: $basic-850;
+    left: 0;
+    right: 0;
+    top: 16px;
+    margin: 0 auto;
+  }
+
+  .column:not(:first-child){
+    position: relative;
+    padding-top: 32px;
+
+    &:after{
+      content: '';
+      position: absolute;
+      display: block;
+      top: 16px;
+      width: 100%;
+      margin: 0 auto;
+      height: 1px;
+      background-color: $basic-850;
+    }
+  }
+
+  .secondColumn{
+    @extend .column;
+    padding-top: 0 !important;
+    &:after{
+      display: none !important;
+    }
+  }
+
+  @media screen and (max-width: 768px){
+    padding: 16px;
+    grid-template-areas: "a";
+    grid-template-columns: unset;
+
+    .secondColumn{
+      padding-top: 32px !important;
+      &:after{
+        display: block !important;
+      }
+    }
+
+    .divider{
+      display: none;
+    }
+  }
+}

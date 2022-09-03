@@ -1,0 +1,46 @@
+@import '../../../../styles/variables.scss';
+
+.pair{
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    border-bottom: 1px solid $basic-825;
+
+    .title{
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 400;
+        color: $basic-100;
+        display: inline-block;
+        width: 108px;
+        padding-right: 8px;
+    }
+
+    .rightSide{
+        display: flex;
+        align-items: center;
+
+        .title:first-child{
+            width: 70px;
+            padding-right: 4px;
+        }
+        .title:last-child{
+            width: 60px;
+            padding-right: 4px;
+        }
+    }
+
+    .priceGreen{
+        color: $green-500;
+    }
+    .priceRed{
+        color: $red-500;
+    }
+    .priceZero{
+        color: $basic-600;
+    }
+
+    &:last-child{
+        border-bottom: none;
+    }
+}

@@ -1,0 +1,142 @@
+@import '../../styles/variables.scss';
+
+.topBar {
+  border-bottom: 1px solid $basic-850;
+  display: flex;
+  align-items: center;
+  padding: 8px 24px;
+  gap: 16px;
+  position: relative;
+  background-color: $basic-900;
+
+  .selectBtn{
+    
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color .2s ease;
+  
+    img{
+      margin-left: 4px;
+    }
+
+    &:hover{
+      background-color: $basic-850;
+    }
+
+    &:active, &Active{
+      background-color: $basic-800 !important;
+    }
+
+    .filterBtnInner{
+      padding: 6px 12px;
+    }
+  }
+
+  .selectBtnSelected{
+    background-color: rgba($blue-500, 0.25) !important;
+  }
+
+  .chainName{
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 600;
+    color: $basic-100;
+  }
+
+  &Small{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    .title{
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 20px;
+      color: $basic-100;
+    }
+    .btns{
+      display: flex;
+      gap: 2px;
+      position: relative;
+    }
+  }
+
+  @media screen and (max-width: 992px){
+    padding: 8px 16px;
+    gap: 0;
+  }
+}
+
+.filterBtn{
+  border-radius: 8px;
+  transition: background-color .2s ease;
+  display: flex;
+  align-items: center;
+  
+  cursor: pointer;
+
+  &Inner{
+    display: flex;
+    padding: 4px;
+  }
+
+  svg{
+    path{
+      transition: fill .2s ease;
+    }
+  }
+
+  &:hover{
+    background-color: $basic-850;
+
+    svg{
+      path{
+        fill: $basic-100;
+      }
+    }
+  }
+
+  &:active, &Active{
+    background-color: $basic-800 !important;
+    svg{
+      path{
+        fill: $basic-100;
+      }
+    }
+  }
+}
+
+.togglesBtn{
+  padding: 4px;
+}
+
+.filterBtnSelected{
+  background-color: rgba($blue-500, 0.25) !important;
+  svg{
+    path{
+      fill: $basic-100;
+    }
+  }
+}
+
+.switchFilter{
+  position: absolute;
+  top: 41px;
+  right: 0px;
+  width: 264px;
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 1px solid $basic-825;
+  background-color: $basic-875;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.disable{
+  pointer-events: none;
+}

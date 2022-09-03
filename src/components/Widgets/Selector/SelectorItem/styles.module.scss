@@ -1,0 +1,38 @@
+@import '../../../../styles/variables.scss';
+
+.selectorItem{
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color .2s ease;
+    cursor: pointer;
+
+    &:hover{
+        background-color: $basic-825;
+    }
+
+    .check{
+        opacity: 0;
+    }
+
+    input{
+        position: absolute;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        margin: 0;
+    }
+
+    input:checked ~ .check{
+        opacity: 1;
+    }
+
+    .value{
+        font-size: 13px;
+        line-height: 24px;
+        font-weight: 400;
+        color: $basic-100;
+    }
+}

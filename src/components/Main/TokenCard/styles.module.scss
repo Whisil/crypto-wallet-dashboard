@@ -1,0 +1,173 @@
+@import '../../../styles/variables.scss';
+
+.card{
+    border-radius: 12px;
+    width: 100%;
+    background-color: $basic-875;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    flex: 1 0 48%;
+
+    .infoWrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .graphBlock{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 33px;
+        min-width: 80px;
+    }
+    
+    .numbers{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .balance{
+        display: inline-block;
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 400;
+        color: $basic-100;
+        margin-bottom: 2px;
+
+        span{
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 4px;
+        }
+    }
+
+    .prices{
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: 400;
+        color: $basic-600;
+        display: inline-block;
+        white-space: pre-wrap;
+        
+        span:not(.divider){
+            display: inline-block;
+        }
+        
+    }
+
+    .chainInfo{
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+
+        &Title{
+            display: inline-block;
+            font-size: 12px;
+            line-height: 20px;
+            font-weight: 400;
+            color: $basic-100;
+            margin-right: 8px;
+        }
+
+        .info{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            
+            &Line{
+                display: flex;
+                gap: 4px;
+
+                &:first-child{
+                    margin-right: 12px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 992px){
+        padding: 10px 12px 12px 12px;
+    }
+
+}
+
+@media screen and (min-width: 1920px){
+    .card{
+        flex: 1 1;
+    }
+}
+
+.cardLarge{
+    flex: unset;
+    gap: 15px;
+    order: -1;
+    padding: 10px 16px;
+
+    .graphBlockLarge{
+        display: flex;
+        justify-content: space-between;
+        gap: 33px;
+
+        @media screen and (max-width: 1140px){
+            gap: 15px;
+        }
+
+        @media screen and (max-width: 992px){
+            display: none;
+            .btns{
+                display: none;
+            }
+        }
+    }
+
+    .balance{
+        span{
+            display: inline;
+        }
+    }
+
+    .prices{
+        margin-bottom: 14px;
+        white-space: pre-wrap;
+    }
+
+    @media screen and (max-width: 992px){
+        flex-direction: column;
+        padding: 12px;
+        gap: 0;
+
+        .btnsMedia{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            
+        }
+    }
+
+    .graphLargeResponsive{
+        margin-top: 27px;
+    }
+}
+
+.lastOddChild{
+    flex: unset;
+    width: calc(50% - 8px);
+
+    @media screen and (max-width: 1240px){
+        flex: 1;
+        width: 100%;
+    }
+
+    @media screen and (max-width: 768px){
+        flex: unset;
+        width: calc(50% - 4px);
+    }
+    @media screen and (max-width: 568px){
+        flex: 1;
+        width: 100%;
+    }
+}

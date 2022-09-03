@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+.cardContainer{
+    display: flex;
+    gap: 4px;
+}
+.largeCard{
+    .cardContainer{
+        flex-direction: column;
+    }
+}
+.column{
+    flex-direction: column;
+}

@@ -1,0 +1,74 @@
+@import '../../../styles/variables.scss';
+
+.item{
+    padding: 6px 10px;
+    margin: 0 8px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color .2s ease;
+
+    input{
+        position: absolute;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        margin: 0;
+    }
+
+    .checkbox{
+        border-radius: 5px;
+        border: 1px solid $basic-600;
+        transition: border-color .2s ease,
+        background-color .2s ease;
+        width: 16px;
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .check{
+            opacity: 0;
+            transition: opacity .2s ease;
+        }
+    }
+
+    input:checked ~ .checkbox{
+        border-color: transparent;
+        background-color: $blue-500;
+
+        .check{
+            opacity: 1;
+        }
+    }
+
+    &:hover{
+        background-color: $basic-825;
+
+        .checkbox{
+            border-color: $basic-300;
+        }
+    }
+
+    .token{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: 1;
+        
+        &Name{
+            font-size: 13px;
+            line-height: 24px;
+            color: $basic-100;
+            font-weight: 400;
+        }
+    }
+
+    .price{
+       font-size: 12px;
+       line-height: 20px;
+       font-weight: 400;
+       color: $basic-600; 
+    }
+}

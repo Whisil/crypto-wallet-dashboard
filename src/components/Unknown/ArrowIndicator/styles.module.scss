@@ -1,0 +1,72 @@
+@import '../../../styles/variables.scss';
+
+.regularVariant{
+    display: inline-flex;
+    align-items: center;
+}
+
+.tokenVariant{
+    @extend .regularVariant;
+    gap: 8px;
+}
+
+.priceVariant{
+    @extend .regularVariant;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.token{
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+
+    &Name{
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20px;
+        color: $basic-100;
+    }
+    img{
+        border-radius: 6px;
+    }
+}
+
+.number{
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    color: $green-500;
+}
+
+.redAccent{
+    color: $red-500;
+}
+
+.priceNeutral{
+    color: $basic-600;
+}
+
+.price{
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 800;
+    color: $basic-100;
+    display: inline-block;
+    margin-right: 6px;
+    white-space: nowrap;
+}
+
+.lgName{
+    font-size: 13px;
+    line-height: 24px;
+    font-weight: 400;
+}
+
+.lgNumber{
+    font-size: 13px;
+    line-height: 24px;
+}
