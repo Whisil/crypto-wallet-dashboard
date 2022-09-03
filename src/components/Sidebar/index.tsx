@@ -16,6 +16,7 @@ import InfoLine from "../Unknown/InfoLine";
 import BestWorst from "../Unknown/BestWorst";
 
 import styles from "./index.module.scss";
+import Loader from "../Unknown/loader";
 
 interface SidebarProps {
   showSidebar: boolean;
@@ -157,84 +158,92 @@ const Sidebar = ({
         <li>
           {isDataOpen && isSidebarOpen && (
             <ul className={styles.infoBlock}>
-              <li className={styles.infoBlockItem}>
-                <InfoLine
-                  sidebarVariant
-                  title="Total value"
-                  info={`$${totalValue.toLocaleString("en-US", {
-                    maximumFractionDigits: 2,
-                  })}`}
-                />
-              </li>
+              {walletHistory.length !== 0 ? (
+                <>
+                  <li className={styles.infoBlockItem}>
+                    <InfoLine
+                      sidebarVariant
+                      title="Total value"
+                      info={`$${totalValue.toLocaleString("en-US", {
+                        maximumFractionDigits: 2,
+                      })}`}
+                    />
+                  </li>
 
-              <li className={styles.infoBlockItem}>
-                <InfoLine
-                  sidebarVariant
-                  title="Unique coins"
-                  info={uniqueCoins}
-                />
-              </li>
+                  <li className={styles.infoBlockItem}>
+                    <InfoLine
+                      sidebarVariant
+                      title="Unique coins"
+                      info={uniqueCoins}
+                    />
+                  </li>
 
-              <li className={styles.infoBlockItem}>
-                <InfoLine
-                  sidebarVariant
-                  title="24h"
-                  info={
-                    totalValue && (
-                      <ArrowIndicator
-                        sidebarVariant
-                        price={totalValue}
-                        price24h={totalValue24h}
+                  <li className={styles.infoBlockItem}>
+                    <InfoLine
+                      sidebarVariant
+                      title="24h"
+                      info={
+                        totalValue && (
+                          <ArrowIndicator
+                            sidebarVariant
+                            price={totalValue}
+                            price24h={totalValue24h}
+                          />
+                        )
+                      }
+                    />
+                  </li>
+
+                  <li className={styles.infoBlockItem}>
+                    <InfoLine
+                      sidebarVariant
+                      title="7d"
+                      info={
+                        totalValue && (
+                          <ArrowIndicator
+                            sidebarVariant
+                            price={totalValue}
+                            price24h={totalValue7d}
+                          />
+                        )
+                      }
+                    />
+                  </li>
+
+                  {sortedBestWorst.length !== 0 && (
+                    <li className={styles.infoBlockItem}>
+                      <BestWorst
+                        bestToken={sortedBestWorst[0].contract_ticker_symbol}
+                        worstToken={
+                          sortedBestWorst[sortedBestWorst.length - 1]
+                            .contract_ticker_symbol
+                        }
+                        priceChangePreCalcBest={
+                          ((sortedBestWorst[0].holdings[0].quote_rate -
+                            sortedBestWorst[0].holdings[6].quote_rate) /
+                            sortedBestWorst[0].holdings[6].quote_rate) *
+                          100
+                        }
+                        priceChangePreCalcWorst={
+                          ((sortedBestWorst[sortedBestWorst.length - 1]
+                            .holdings[0].quote_rate -
+                            sortedBestWorst[sortedBestWorst.length - 1]
+                              .holdings[6].quote_rate) /
+                            sortedBestWorst[sortedBestWorst.length - 1]
+                              .holdings[6].quote_rate) *
+                          100
+                        }
+                        tokenLogoBest={sortedBestWorst[0].logo_url}
+                        tokenLogoWorst={
+                          sortedBestWorst[sortedBestWorst.length - 1].logo_url
+                        }
                       />
-                    )
-                  }
-                />
-              </li>
-
-              <li className={styles.infoBlockItem}>
-                <InfoLine
-                  sidebarVariant
-                  title="7d"
-                  info={
-                    totalValue && (
-                      <ArrowIndicator
-                        sidebarVariant
-                        price={totalValue}
-                        price24h={totalValue7d}
-                      />
-                    )
-                  }
-                />
-              </li>
-
-              {sortedBestWorst.length !== 0 && (
-                <li className={styles.infoBlockItem}>
-                  <BestWorst
-                    bestToken={sortedBestWorst[0].contract_ticker_symbol}
-                    worstToken={
-                      sortedBestWorst[sortedBestWorst.length - 1]
-                        .contract_ticker_symbol
-                    }
-                    priceChangePreCalcBest={
-                      ((sortedBestWorst[0].holdings[0].quote_rate -
-                        sortedBestWorst[0].holdings[6].quote_rate) /
-                        sortedBestWorst[0].holdings[6].quote_rate) *
-                      100
-                    }
-                    priceChangePreCalcWorst={
-                      ((sortedBestWorst[sortedBestWorst.length - 1].holdings[0]
-                        .quote_rate -
-                        sortedBestWorst[sortedBestWorst.length - 1].holdings[6]
-                          .quote_rate) /
-                        sortedBestWorst[sortedBestWorst.length - 1].holdings[6]
-                          .quote_rate) *
-                      100
-                    }
-                    tokenLogoBest={sortedBestWorst[0].logo_url}
-                    tokenLogoWorst={
-                      sortedBestWorst[sortedBestWorst.length - 1].logo_url
-                    }
-                  />
+                    </li>
+                  )}
+                </>
+              ) : (
+                <li className={styles.loader}>
+                  <Loader />
                 </li>
               )}
             </ul>

@@ -10,8 +10,6 @@ import { getWallet } from "src/redux/actions/auth";
 
 import styles from "./index.module.scss";
 
-declare var window : any;
-
 const Home: React.FC = () => {
   const [state, setState] = useState<
     undefined | { authReducer: { walletData: { balances: {}[] } } }
@@ -130,13 +128,15 @@ const Home: React.FC = () => {
             handlePassChains={handlePassChains}
           />
         </div>
-        <Main
-          balances={walletBalances}
-          BTCAndETHPrice={BTCAndETHPrice}
-          smallBalances={smallBalances}
-          individualTokens={individualTokens}
-          selectedChains={chains}
-        />
+        <div className={styles.mainWrapper}>
+          <Main
+            balances={walletBalances}
+            BTCAndETHPrice={BTCAndETHPrice}
+            smallBalances={smallBalances}
+            individualTokens={individualTokens}
+            selectedChains={chains}
+          />
+        </div>
       </div>
     </div>
   );

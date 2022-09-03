@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "src/components/Main/index.module.scss";
+import Loader from "../Unknown/loader";
 import ChainColumn from "./ChainColumn";
 
 interface MainProps {
@@ -33,7 +34,7 @@ const Main = ({
 
   return (
     <>
-      {balances.length !== 0 && (
+      {balances.length !== 0 ? (
         <div className={styles.main}>
           <div className={styles.divider} />
           <div>
@@ -68,6 +69,10 @@ const Main = ({
                 </div>
               ))}
           </div>
+        </div>
+      ) : (
+        <div className={styles.loader}>
+          <Loader />
         </div>
       )}
     </>
