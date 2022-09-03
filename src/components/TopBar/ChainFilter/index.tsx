@@ -64,18 +64,6 @@ const ChainFilter = ({
     <>
       {!showNull ? null : (
         <ul className={styles.filterList}>
-          <li>
-            <label className={styles.filterSearch} htmlFor="filterSearch">
-              <input
-                id="filterSearch"
-                className={styles.filterSearchInput}
-                type="text"
-                placeholder="Search platforms..."
-                autoComplete="off"
-                onChange={(e) => setSearch(e.target.value)}
-              />
-            </label>
-          </li>
           {selectedChains.length !== 0 && (
             <>
               {selectedChains.map((item) => (
